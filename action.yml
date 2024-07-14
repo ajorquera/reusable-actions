@@ -1,0 +1,17 @@
+name: Yarn install
+description: Install and cache dependencies using Yarn
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Fetch repo 🧤
+      uses: actions/checkout@v3
+    - name: Set Node ⚙️
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'yarn'
+        cache-dependency-path: yarn.lock
+        
+    - name: Install dependencies 📦
+      run: yarn install
