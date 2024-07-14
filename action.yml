@@ -14,4 +14,5 @@ runs:
         cache-dependency-path: yarn.lock
         
     - name: Install dependencies 📦
+      shell: bash
       run: yarn install
