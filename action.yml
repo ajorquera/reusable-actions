@@ -1,6 +1,9 @@
 name: Yarn install
 description: Install and cache dependencies using Yarn
-
+inputs: 
+  node-version:
+      description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
+      default: 'alpine-current'
 runs:
   using: 'composite'
   steps:
@@ -10,7 +13,7 @@ runs:
     - name: Set Node ⚙️
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: ${{ inputs.node-version }}
         cache: 'yarn'
         cache-dependency-path: yarn.lock
         
